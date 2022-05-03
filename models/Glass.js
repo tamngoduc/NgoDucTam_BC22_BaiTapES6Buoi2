@@ -11,19 +11,13 @@ class Glass {
   }
 
   renderGlass() {
-    const glasses = this.glasses.reduce((result, item) => {
-      return (
-        result +
-        `
+    return `
         <div class="col-4">
             <div class="vglasses__items">
-                <img src="${item.src}">
+                <img src="${this.src}" class="img-fluid">
             </div>
         </div>
-      `
-      );
-    }, "");
-    return glasses;
+      `;
   }
 }
 

@@ -102,4 +102,25 @@ function generateGlasses(data) {
     const { id, src, virtualImg, brand, name, color, price, description } = item;
     return new Glass(id, src, virtualImg, brand, name, color, price, description);
   });
+
+  return glasses;
 }
+
+function renderGlasses(payload) {
+  const html = payload.reduce((result, glass) => {
+    return (
+      result +
+      `
+      ${glass.renderGlass()}
+      `
+    );
+  }, "");
+  document.getElementById("vglassesList").innerHTML = html;
+}
+
+function init(data) {
+  const glasses = generateGlasses(data);
+  renderGlasses(glasses);
+}
+
+init(dataGlasses);
